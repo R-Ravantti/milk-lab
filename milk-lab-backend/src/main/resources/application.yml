@@ -1,0 +1,32 @@
+debug: true
+spring:
+  sql:
+    init:
+      platform: mongodb
+      mode: always
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    jpa:
+      defer-datasource-initialization: true
+      hibernate:
+        ddl-auto: update
+  data:
+    mongodb:
+      uri: mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}/${MONGO_DATABASE}
+      database: ${MONGO_DATABASE}
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
