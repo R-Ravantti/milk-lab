@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "/api/milk")
 public class MilkController {
 
