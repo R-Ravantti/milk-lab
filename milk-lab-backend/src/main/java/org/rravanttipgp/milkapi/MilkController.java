@@ -20,6 +20,15 @@ public class MilkController {
         return ResponseEntity.ok(service.getAllMilks());
     }
 
+    @PutMapping(path = "purchase")
+    public ResponseEntity<Milk> purchaseMilk(@RequestBody MilkPurchaseDTO dto) {
+        Milk purchasedMilk = service.purchaseMilk(dto.id(), dto.amount());
+        if(purchasedMilk == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.accepted().body(purchasedMilk);
+    }
+
     @PostMapping(path = "seed")
     public ResponseEntity<MilkListDTO> seedDatabase(@RequestBody MilkListDTO dto, HttpServletRequest req) {
         return ResponseEntity.created(URI.create(req.getRequestURI())).body(service.seedDatabase(dto));

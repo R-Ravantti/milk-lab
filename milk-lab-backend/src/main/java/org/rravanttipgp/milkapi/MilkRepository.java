@@ -20,5 +20,7 @@ public class MilkRepository {
 
     public List<Milk> getAllMilks() { return Streamable.of(repo.findAll()).toList(); }
 
+    public Milk getMilk(String id) { return repo.findById(id).orElse(null); }
+
     public Milk saveMilk(Milk milk) { return repo.save(milk); }
 }
