@@ -20,6 +20,11 @@ public class MilkController {
         return ResponseEntity.ok(service.getAllMilks());
     }
 
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Milk> getMilk(@PathVariable String id) {
+        return ResponseEntity.ok(service.getMilk(id));
+    }
+
     @PutMapping(path = "purchase")
     public ResponseEntity<Milk> purchaseMilk(@RequestBody MilkPurchaseDTO dto) {
         Milk purchasedMilk = service.purchaseMilk(dto.id(), dto.amount());

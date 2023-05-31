@@ -20,6 +20,8 @@ public class MilkService {
         return new MilkListDTO(milks.size(), milks);
     }
 
+    public Milk getMilk(String id) { return repo.getMilk(id); }
+
     public Milk purchaseMilk(String id, int amount) {
         if(amount <= 0) {
             return null;

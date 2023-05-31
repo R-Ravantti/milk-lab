@@ -25,7 +25,13 @@ export async function fetchAllMilks(setMilks: Dispatch<SetStateAction<Milk[]>>) 
     setMilks(responseJSON.results);
 }
 
-export async function purchaseMilk(milkId: string, milkAmount: number, setMilks: Dispatch<SetStateAction<Milk[]>>) {
+export async function fetchMilk(milkId: string, setMilk: Dispatch<SetStateAction<Milk>>) {
+    const response = await fetch(`${BASE_PATH}/${milkId}`);
+    const responseJSON: Milk = await response.json();
+    setMilk(responseJSON);
+}
+
+export async function purchaseMilk(milkId: string, milkAmount: number, setMilk: Dispatch<SetStateAction<Milk>>) {
     if(milkAmount <= 0) {
         return;
     }
@@ -37,6 +43,6 @@ export async function purchaseMilk(milkId: string, milkAmount: number, setMilks:
     };
     const response = await fetch(`${BASE_PATH}/${milkId}`, reqOptions);
     if(response.ok) {
-        await fetchAllMilks(setMilks);
+        await fetchMilk(milkId, setMilk);
     }
 }
