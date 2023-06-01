@@ -19,10 +19,11 @@ type MilkPurchaseDTO = {
 
 const BASE_PATH = 'http://localhost:8080/api/milk';
 
-export async function fetchAllMilks(setMilks: Dispatch<SetStateAction<Milk[]>>) {
+export async function fetchAllMilks(setMilks: Dispatch<SetStateAction<Milk[]>>, setProdAmount: Dispatch<SetStateAction<number>>) {
     const response = await fetch(BASE_PATH);
     const responseJSON: MilkListDTO = await response.json();
     setMilks(responseJSON.results);
+    setProdAmount(responseJSON.count);
 }
 
 export async function fetchMilk(milkId: string, setMilk: Dispatch<SetStateAction<Milk>>) {

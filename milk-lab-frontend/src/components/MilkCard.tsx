@@ -8,8 +8,8 @@ type MilkCardProps = {
 export default function MilkCard(props: MilkCardProps) {
     const { milk } = props;
     return (
-        <a className="w-72 rounded overflow-hidden shadow-lg mx-10 my-8" href={"/" + milk.id}>
-            <img className="w-full" src="/milk.png"></img>
+        <a className="w-80 rounded overflow-hidden shadow-lg my-8 bg-white" href={"/" + milk.id}>
+            <img className="w-full bg-fuchsia-100" src="/milk.png"></img>
             <p className="font-bold text-l m-1 break-normal">{milk.name}</p>
             <div className="flex justify-between">
                 <p className="m-1 text-gray-400">{milk.type}</p>
