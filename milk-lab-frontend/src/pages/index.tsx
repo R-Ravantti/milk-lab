@@ -17,19 +17,8 @@ function handleDropdown(event: React.ChangeEvent<HTMLInputElement>, milkType: st
 }
 
 function milkFiltering(milks: Milk[], selectedTypes: string[], searchTerm: string) {
-  return milks.filter(milk => {
-    if(selectedTypes.length === 0) {
-      return true;
-    } else {
-      return selectedTypes.includes(milk.type);
-    }
-  }).filter(milk => {
-    if(searchTerm.length === 0) {
-      return true;
-    } else {
-      return milk.name.includes(searchTerm);
-    }
-  });
+  return milks.filter(milk => {return (selectedTypes.length > 0) ? selectedTypes.includes(milk.type) : true;})
+  .filter(milk => {return (searchTerm.length > 0) ? milk.name.toLowerCase().includes(searchTerm.toLowerCase()) : true});
 }
 
 export default function Home() {
