@@ -44,7 +44,7 @@ export default function Home() {
           <Dropdown label="Filter">
             {getTypes(milks).map(milkType => {
               return (
-                <Dropdown.Item>
+                <Dropdown.Item key={milkType}>
                   <div className="flex items-center gap-2">
                     <Checkbox id={milkType} onChange={(e) => {
                       handleDropdown(e, milkType, selectedTypes, setSelectedTypes);
@@ -59,7 +59,7 @@ export default function Home() {
         <p className="basis-3/5 text-2xl mx-1">{prodAmount} results</p>
         <div className="basis-3/5 flex flex-wrap justify-between">
           {milkFiltering(milks, selectedTypes, searchTerm).map(milk => {
-            return <MilkCard milk={milk} />
+            return <MilkCard key={milk.id} milk={milk} />
           })}
         </div>
       </div>

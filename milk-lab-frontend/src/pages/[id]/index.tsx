@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Milk, fetchMilk, purchaseMilk } from "@/apicalls/milkfetcher";
 import MilkCard from "@/components/MilkCard";
 import { ParsedUrlQuery } from "querystring";
+import Link from "next/link";
 
 export default function MilkContent() {
     const router = useRouter();
@@ -22,7 +23,7 @@ export default function MilkContent() {
                     <p className="font-bold text-3xl text-pink-300">The Milk Store</p>
                 </header>
                 <div className="flex justify-center items-end bg-rose-100 h-12 w-full">
-                    <a href="/" className="text-2xl text-blue-300">{"< Back"}</a>
+                    <Link href="/" className="text-2xl text-blue-300">{"< Back"}</Link>
                 </div>
                 <div className="flex flex-wrap justify-center content-center bg-rose-100 w-full grow">
                     <div className="w-3/5 flex justify-left">
