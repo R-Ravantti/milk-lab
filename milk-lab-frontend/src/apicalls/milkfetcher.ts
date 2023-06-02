@@ -42,7 +42,7 @@ export async function purchaseMilk(milkId: string, milkAmount: number, setMilk: 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(reqBody)
     };
-    const response = await fetch(`${BASE_PATH}/${milkId}`, reqOptions);
+    const response = await fetch(`${BASE_PATH}/purchase`, reqOptions);
     if(response.ok) {
         await fetchMilk(milkId, setMilk);
     }
