@@ -21,8 +21,8 @@ export default function MilkContent() {
                 <header className="flex justify-center items-center h-24 w-full">
                     <p className="font-bold text-3xl text-pink-300">The Milk Store</p>
                 </header>
-                <div className="flex justify-center items-center bg-rose-100 h-12 w-full">
-                    <a href="/">{"< Back"}</a>
+                <div className="flex justify-center items-end bg-rose-100 h-12 w-full">
+                    <a href="/" className="text-2xl text-blue-300">{"< Back"}</a>
                 </div>
                 <div className="flex flex-wrap justify-center content-center bg-rose-100 w-full grow">
                     <div className="w-3/5 flex justify-left">
